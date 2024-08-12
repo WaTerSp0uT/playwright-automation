@@ -5,7 +5,7 @@ test('Search for Ukraine in google', async ({ page }) => {
   await page.goto('https://www.google.com/');
   await page.waitForTimeout(3000); // Wait for 1 second before checking for the search results
 
-  const searchInput = await page.locator('input[name="q"]');
+  const searchInput = await page.locator("//textarea[@id='APjFqb' and @name='q']");
   await searchInput.fill('Ukraine');
   await page.waitForTimeout(3000);
   await searchInput.press('Enter');
