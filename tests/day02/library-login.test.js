@@ -1,7 +1,8 @@
 import { test } from '@playwright/test';
-import dotenv from 'dotenv';
+import dotenv from "dotenv";
 
 dotenv.config("./.env");
+//require('dotenv').config();
 
 
 test('Library login', async ({ page }) => {
@@ -17,8 +18,11 @@ const passwordInput = await page.locator("//label[@for='inputPassword' and text(
 const loginButton = await page.locator("//button[@type='submit']");
 
 // Fill in the login form with valid credentials
-await userNameInput.fill(process.env.CYDEO_LIBRARY_EMAIL);
-await passwordInput.fill(process.env.CYDEO_LIBRARY_PASSWORD);
+await page.waitForTimeout(3000);
+await userNameInput.fill(process.env.LIBRARY_STUDENT_USERNAME);
+await page.waitForTimeout(3000);
+await passwordInput.fill(process.env.LIBRARY_STUDENT_PASSWORD);
+await page.waitForTimeout(3000);
 
 // Click the login button
 await loginButton.click();
