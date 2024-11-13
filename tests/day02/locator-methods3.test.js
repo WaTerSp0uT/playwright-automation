@@ -28,6 +28,6 @@ test('state methods of locator', async ({ page }) => {
     console.log( await checkBox1.isChecked());
     console.log( await checkBox2.isChecked());
 
-
+    
 
 });
