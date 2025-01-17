@@ -4,6 +4,7 @@ test.describe('Test Group Example', async () => {
 
   // beforeEach hook to navigate to the URL
   test.beforeEach(async ({ page }) => {
+
     await page.goto('https://practice.cydeo.com/javascript_alerts');
   });
 
@@ -37,7 +38,7 @@ test.describe('Test Group Example', async () => {
         confirmMessage = dialog.message();
 
         await page.waitForTimeout(3000);
-        dialog.dismiss();
+        dialog.accept();
     });
 
     const clickForJSConfirm = page.locator("(//button[@class='btn btn-primary'])[2]");
@@ -46,7 +47,7 @@ test.describe('Test Group Example', async () => {
     await page.waitForTimeout(3000);
     await expect( page.locator("text='You clicked: Cancel'")).toBeVisible();
 
-    expect(confirmMessage).toBe("I am a JS Confirm");
+    expect(confirmMessage).toContain("Ok");
 
 
   });
