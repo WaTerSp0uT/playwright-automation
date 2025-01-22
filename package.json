@@ -5,9 +5,14 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
+
     "tests": "playwright test",
-    "test:specific": "playwright test ./tests/*/assertion-practice1.test.js",
-    "report": "playwright show-report"
+
+    "test:specific": "npx playwright test ./tests/*/assertion-practice1.test.js",
+
+    "test:tag": "npx playwright test --grep @tag1",
+
+    "report": "npx playwright show-report"
   },
   "keywords": [],
   "author": "",
